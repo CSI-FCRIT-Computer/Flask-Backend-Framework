@@ -1,8 +1,24 @@
+{% extends 'index.html' %}
+
 <!DOCTYPE html>
 <head>
-  <title>login success</title>
+  <title>login success</title>  
 </head>
 <body>
-  <h1>Hello</h1>    
+
+
+  <h1>Welcome, {{username}}</h1>  
+  {% block body %}
+    {% for book in books %} 
+    
+        <h1>Book :{{book[0]}}</h1>
+        <h2>Author:{{book[1]}}</h2>
+        <h3>Rating :{{book[2]}}</h3> 
+        <br>
+    {% endfor %}
+
+
+{% endblock %}  
+    
 </body>
 </html>

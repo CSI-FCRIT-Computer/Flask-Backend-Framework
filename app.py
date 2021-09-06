@@ -65,7 +65,12 @@ def register():
 
 @app.route("/home")
 def userhome():
-    return render_template('home.html')
+    if 'loggedin' in session:
+        cursor = mysql.connection.cursor()
+        cursor.execute('SELECT * FROM books ')
+        value = cursor.fetchall() 
+        print(value)
+        return render_template('home.html', books=value)
 
 if __name__=="__main__":
     app.run(debug=True);  
