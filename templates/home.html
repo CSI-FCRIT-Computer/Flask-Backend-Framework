@@ -1,11 +1,11 @@
-{% extends 'index.html' %}
-
+{% extends "navbar.html" %}
 <!DOCTYPE html>
 <head>
   <title>login success</title>  
 </head>
+{% block header %}
+{% endblock %}
 <body>
-
 
   <h1>Welcome, {{username}}</h1>  
   {% block body %}
@@ -16,9 +16,8 @@
         <h3>Rating :{{book[2]}}</h3> 
         <br>
     {% endfor %}
+  
+  {% endblock %}  
 
-
-{% endblock %}  
-    
 </body>
 </html>

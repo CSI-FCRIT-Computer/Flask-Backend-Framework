@@ -66,11 +66,22 @@ def register():
 @app.route("/home")
 def userhome():
     if 'loggedin' in session:
+        username=session.get("username")
         cursor = mysql.connection.cursor()
         cursor.execute('SELECT * FROM books ')
         value = cursor.fetchall() 
         print(value)
-        return render_template('home.html', books=value)
+        return render_template('home.html', books=value,username=username)
+
+@app.route("/session")  
+def sess():
+    username=session.get("username")
+    return username
+
+@app.route("/navbar")  
+def nav():
+    return render_template('navbar.html')    
+
 
 if __name__=="__main__":
     app.run(debug=True);  
